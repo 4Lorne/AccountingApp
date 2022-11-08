@@ -1,3 +1,6 @@
+import GUI.Frame;
+
+import javax.swing.*;
 import java.awt.*;
 
 public class Main {
@@ -6,7 +9,8 @@ public class Main {
             @Override
             public void run() {
                 try {
-                    GUI frame = new GUI();
+                    GUI.Frame frame = new Frame();
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
