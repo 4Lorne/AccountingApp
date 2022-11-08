@@ -7,13 +7,19 @@ import java.awt.event.ActionListener;
 
 
 public class Frame extends JFrame {
-    JPanel panel = new JPanel(new GridBagLayout());
+    JPanel panelStart = new JPanel(new GridBagLayout());
+    JPanel panelStudent = new JPanel(new GridBagLayout());
+    JPanel panelStaff = new JPanel(new GridBagLayout());
     GridBagConstraints c = new GridBagConstraints();
 
     public Frame(){
+        setPanelStart();
+    }
+
+    void setPanelStart(){
         setTitle("Accounting Application");
         //Size of the frame
-        setSize(300,200);
+        setSize(300,150);
 
         //NOTE
         //Buttons need to be added to the panel before being
@@ -30,30 +36,54 @@ public class Frame extends JFrame {
         c.gridwidth=0;
         c.gridx=0;
         c.gridy=0;
-        panel.add(select,c);
+        panelStart.add(select,c);
 
-        //Adding the buttons to the panel
+        //Adding the buttons to the start panel
         JButton student = new JButton("Student");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridwidth=1;
         c.gridx=0;
         c.gridy=5;
-        panel.add(student,c);
+        panelStart.add(student,c);
 
         JButton staff = new JButton("Staff");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx=1;
         c.gridy=5;
-        panel.add(staff,c);
+        panelStart.add(staff,c);
 
         JButton exit = new JButton("Exit");
         c.fill=GridBagConstraints.HORIZONTAL;
         c.gridx=2;
         c.gridy=5;
-        panel.add(exit,c);
+        panelStart.add(exit,c);
 
         //Adding the panel to the frame
-        add(panel);
+        add(panelStudent);
+        add(panelStaff);
+        add(panelStart);
+
+        //Hides the first panel, shows the one chosen.
+        student.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelStart.setVisible(false);
+                panelStaff.setVisible(false);
+                panelStudent.setVisible(true);
+            }
+        });
+
+        staff.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelStart.setVisible(false);
+                panelStudent.setVisible(false);
+                panelStaff.setVisible(true);
+            }
+        });
+    }
+
+    void setPanelStudent(){
 
     }
 }

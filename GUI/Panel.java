@@ -7,7 +7,5 @@ public class Panel extends JPanel {
     Button student = new Button("Student");
 
     public Panel(){
-        setLayout(new CardLayout());
-
     }
 }
