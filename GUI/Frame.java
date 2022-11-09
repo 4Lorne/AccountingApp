@@ -1,5 +1,7 @@
 package GUI;
 
+import Classes.Student;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +13,7 @@ public class Frame extends JFrame {
     JPanel panelStudent = new JPanel(new GridBagLayout());
     JPanel panelStaff = new JPanel(new GridBagLayout());
     GridBagConstraints c = new GridBagConstraints();
+
 
     public Frame(){
         setPanelStart();
@@ -109,14 +112,18 @@ public class Frame extends JFrame {
         c.gridy=1;
         panelStudent.add(confirmStudentInput,c);
 
-        //TODO: Take input and assign to integer, check for validity
+        //TODO: Add input validation for strings
+        confirmStudentInput.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int currYear = Integer.parseInt(confirmStudentInput.getText());
+                if (currYear > 4 || currYear < 1){
+                    JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
+                }
 
-//        String currYear = enterStudentYear.getText();
-//        int currYearInt = Integer.parseInt(currYear);
 
-//        if (currYearInt != 1){
-//            JOptionPane.showMessageDialog(null,"Please enter an integer.");
-//        }
+            }
+        });
 
         JLabel studentName = new JLabel("Enter student name");
         c.gridx=0;
