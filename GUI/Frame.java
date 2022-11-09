@@ -70,6 +70,7 @@ public class Frame extends JFrame {
                 panelStart.setVisible(false);
                 panelStaff.setVisible(false);
                 panelStudent.setVisible(true);
+                setPanelStudent();
             }
         });
 
@@ -84,6 +85,61 @@ public class Frame extends JFrame {
     }
 
     void setPanelStudent(){
+        //Buttons will grow with the screen
+        c.weightx=0.5;
+        c.insets= new Insets(5,5,5,5);
 
+        //Increases the size to accommodate for more menus
+        setSize(300,250);
+
+        JLabel studentYear = new JLabel("Enter student year (1-4)");
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx=0;
+        c.gridy=0;
+        panelStudent.add(studentYear,c);
+
+        JTextField enterStudentYear = new JTextField(15);
+        c.gridx=0;
+        c.gridy=1;
+        panelStudent.add(enterStudentYear,c);
+
+        JButton confirmStudentInput = new JButton("Ok");
+        c.gridwidth=1;
+        c.gridx=1;
+        c.gridy=1;
+        panelStudent.add(confirmStudentInput,c);
+
+        //TODO: Take input and assign to integer, check for validity
+
+//        String currYear = enterStudentYear.getText();
+//        int currYearInt = Integer.parseInt(currYear);
+
+//        if (currYearInt != 1){
+//            JOptionPane.showMessageDialog(null,"Please enter an integer.");
+//        }
+
+        JLabel studentName = new JLabel("Enter student name");
+        c.gridx=0;
+        c.gridy=2;
+        panelStudent.add(studentName,c);
+
+
+        JTextField enterName = new JTextField("",15);
+        c.gridx=0;
+        c.gridy=3;
+        panelStudent.add(enterName,c);
+
+        JLabel studentAddress = new JLabel("Enter student address");
+        c.gridx=0;
+        c.gridy=4;
+        panelStudent.add(studentAddress,c);
+
+        JTextField enterAddress = new JTextField("",15);
+        c.gridx=0;
+        c.gridy=5;
+        panelStudent.add(enterAddress,c);
+
+
+        add(panelStudent);
     }
 }
