@@ -3,6 +3,8 @@ import GUI.StartPanel;
 import javax.swing.*;
 import java.awt.*;
 
+//TODO: Create new JFrame when clicking on Student / Staff / Generate Report
+
 public class Main {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {

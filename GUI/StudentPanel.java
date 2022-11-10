@@ -1,9 +1,13 @@
 package GUI;
 
+import Classes.Student;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class StudentPanel extends JPanel {
+    ArrayList<Student> studentArray = new ArrayList<>();
     //Variables
     int studentYear = 0;
     String studentName = "";
@@ -21,11 +25,11 @@ public class StudentPanel extends JPanel {
         c.insets= new Insets(5,5,5,5);
 
         //*****
-        JLabel studentYear = new JLabel("Enter student year (1-4)");
+        JLabel labelStudentYear = new JLabel("Enter student year (1-4)");
         c.anchor = GridBagConstraints.LINE_START;
         c.gridx=0;
         c.gridy=0;
-        add(studentYear,c);
+        add(labelStudentYear,c);
 
         JTextField enterStudentYear = new JTextField(15);
         c.gridx=0;
@@ -40,22 +44,22 @@ public class StudentPanel extends JPanel {
         //TODO set values to Student class
         confirmStudentInput.addActionListener(e -> {
             try {
-                StudentPanel.this.studentYear = Integer.parseInt(enterStudentYear.getText());
+                studentYear = Integer.parseInt(enterStudentYear.getText());
             } catch (Exception f){
                 f.printStackTrace();
             }
             if (enterStudentYear.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Please enter a number.");
-            } else if (StudentPanel.this.studentYear > 4 || StudentPanel.this.studentYear < 1){
+            } else if (studentYear > 4 || studentYear < 1){
                 JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
             }
         });
 
         //******
-        JLabel studentName = new JLabel("Enter student name");
+        JLabel labelStudentName = new JLabel("Enter student name");
         c.gridx=0;
         c.gridy=2;
-        add(studentName,c);
+        add(labelStudentName,c);
 
         JTextField enterName = new JTextField("",15);
         c.gridx=0;
@@ -70,21 +74,21 @@ public class StudentPanel extends JPanel {
         //TODO set values to Student class
         confirmStudentName.addActionListener(e -> {
             try {
-                StudentPanel.this.studentName = confirmStudentName.getText();
+                studentName = enterName.getText();
             } catch (Exception f){
                 f.printStackTrace();
             }
-            if (enterStudentYear.getText().isEmpty()){
+            if (enterName.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Please enter valid information.");
             }
         });
         //******
 
         //******
-        JLabel studentAddress = new JLabel("Enter student address");
+        JLabel labelStudentAddress = new JLabel("Enter student address");
         c.gridx=0;
         c.gridy=4;
-        add(studentAddress,c);
+        add(labelStudentAddress,c);
 
         JTextField enterAddress = new JTextField("",15);
         c.gridx=0;
@@ -99,7 +103,7 @@ public class StudentPanel extends JPanel {
         //TODO set values to Student class
         confirmStudentAddress.addActionListener(e -> {
             try {
-                StudentPanel.this.studentAddress = enterAddress.getText();
+                studentAddress = enterAddress.getText();
             } catch (Exception f){
                 f.printStackTrace();
             }
@@ -109,15 +113,22 @@ public class StudentPanel extends JPanel {
         });
         //******
 
-        JButton generateReport = new JButton("Generate Report");
+
+        JButton generateStudent = new JButton("Generate Student");
         c.insets= new Insets(10,5,5,0);
         c.gridx=0;
         c.gridy=7;
-        add(generateReport,c);
+        add(generateStudent,c);
+
+        generateStudent.addActionListener(e ->
+                studentArray.add(new Student(studentName,studentAddress,studentYear)));
 
         JButton backButton = new JButton("Back");
         c.gridx=1;
         c.gridy=7;
         add(backButton,c);
+
     }
+
+
 }

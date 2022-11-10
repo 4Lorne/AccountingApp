@@ -47,7 +47,7 @@ public class StartPanel extends JFrame {
         c.gridy=5;
         panelStart.add(staff,c);
 
-        JButton exit = new JButton("Exit");
+        JButton exit = new JButton("Generate Report");
         c.fill=GridBagConstraints.HORIZONTAL;
         c.gridx=2;
         c.gridy=5;

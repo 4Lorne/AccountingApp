@@ -7,4 +7,5 @@ public class Student extends Person{
         super(name,address);
         this.year = year;
     }
+
 }

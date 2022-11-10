@@ -1,9 +1,13 @@
 package GUI;
 
+import Classes.Staff;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class StaffPanel extends JPanel {
+    ArrayList<Staff> staffArray = new ArrayList<>();
     //Variables
     String staffName;
     String staffAddress;
@@ -20,11 +24,11 @@ public class StaffPanel extends JPanel {
         c.weightx=0.5;
         c.insets= new Insets(5,5,5,5);
 
-        JLabel staffName = new JLabel("Enter staff name");
+        JLabel labelStaffName = new JLabel("Enter staff name");
         c.anchor = GridBagConstraints.LINE_START;
         c.gridx=0;
         c.gridy=0;
-        add(staffName,c);
+        add(labelStaffName,c);
 
         JTextField enterStaffName = new JTextField(15);
         c.gridx=0;
@@ -39,7 +43,7 @@ public class StaffPanel extends JPanel {
 
         confirmStaffName.addActionListener(e -> {
             try {
-                StaffPanel.this.staffName = enterStaffName.getText();
+                staffName = enterStaffName.getText();
             } catch (Exception f){
                 f.printStackTrace();
             }
@@ -49,10 +53,10 @@ public class StaffPanel extends JPanel {
         });
 
 
-        JLabel staffAddress = new JLabel("Enter staff address");
+        JLabel labelStaffAddress = new JLabel("Enter staff address");
         c.gridx=0;
         c.gridy=2;
-        add(staffAddress,c);
+        add(labelStaffAddress,c);
 
         JTextField enterStaffAddress = new JTextField(15);
         c.gridx=0;
@@ -67,7 +71,7 @@ public class StaffPanel extends JPanel {
 
         confirmStaffAddress.addActionListener(e -> {
             try {
-                StaffPanel.this.staffAddress = enterStaffAddress.getText();
+                staffAddress = enterStaffAddress.getText();
             } catch (Exception f){
                 f.printStackTrace();
             }
@@ -77,10 +81,10 @@ public class StaffPanel extends JPanel {
         });
 
 
-        JLabel yearsOfService = new JLabel("Enter staff years of service");
+        JLabel labelYearsOfService = new JLabel("Enter staff years of service");
         c.gridx=0;
         c.gridy=4;
-        add(yearsOfService,c);
+        add(labelYearsOfService,c);
 
         JTextField enterStaffYearsOfService = new JTextField(15);
         c.gridx=0;
@@ -95,22 +99,25 @@ public class StaffPanel extends JPanel {
 
         confirmStaffYearsOfService.addActionListener(e -> {
             try {
-                StaffPanel.this.yearsOfService = Integer.parseInt(enterStaffYearsOfService.getText());
+                yearsOfService = Integer.parseInt(enterStaffYearsOfService.getText());
             } catch (Exception f){
                 f.printStackTrace();
             }
             if (enterStaffYearsOfService.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Please enter a number.");
-            } else if (StaffPanel.this.yearsOfService < 1 || StaffPanel.this.yearsOfService > 30){
+            } else if (yearsOfService < 1 || yearsOfService > 30){
                 JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
             }
         });
 
-        JButton generateReport = new JButton("Generate Report");
+        JButton generateReport = new JButton("Generate Staff");
         c.insets= new Insets(10,5,5,0);
         c.gridx=0;
         c.gridy=7;
         add(generateReport,c);
+
+        generateReport.addActionListener(e ->
+                staffArray.add(new Staff(staffName,staffAddress,yearsOfService)));
 
         JButton backButton = new JButton("Back");
         c.gridx=1;
