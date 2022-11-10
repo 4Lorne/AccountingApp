@@ -1,7 +1,5 @@
 package GUI;
 
-import Classes.Student;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,11 +8,10 @@ import java.awt.event.ActionListener;
 
 public class Frame extends JFrame {
     JPanel panelStart = new JPanel(new GridBagLayout());
-    JPanel panelStudent = new JPanel(new GridBagLayout());
-    JPanel panelStaff = new JPanel(new GridBagLayout());
     GridBagConstraints c = new GridBagConstraints();
 
     StudentPanel studentPanel = new StudentPanel();
+    StaffPanel staffPanel = new StaffPanel();
 
     public Frame(){
         setTitle("Accounting Application");
@@ -64,7 +61,7 @@ public class Frame extends JFrame {
 
         //Adding the panel to the frame
         add(studentPanel);
-        add(panelStaff);
+        add(staffPanel);
         add(panelStart);
 
         //Hides the first panel, shows the one chosen.
@@ -72,21 +69,28 @@ public class Frame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelStart.setVisible(false);
-                panelStaff.setVisible(false);
                 //TODO: Figure out how to put this in StudentPanel.java
                 setSize(300,270);
                 studentPanel.setVisible(true);
             }
         });
 
-//        staff.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                panelStart.setVisible(false);
-//                panelStudent.setVisible(false);
-//                panelStaff.setVisible(true);
-//            }
-//        });
+        staff.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelStart.setVisible(false);
+                setSize(300,270);
+                staffPanel.setVisible(true);
+            }
+        });
+
+
+
+
     }
+
+
+
+
 
 }

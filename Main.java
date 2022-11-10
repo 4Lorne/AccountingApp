@@ -12,6 +12,9 @@ public class Main {
                     GUI.Frame frame = new Frame();
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.setVisible(true);
+                    frame.setResizable(false);
+                    frame.setLocationRelativeTo(null);
+                    frame.pack();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

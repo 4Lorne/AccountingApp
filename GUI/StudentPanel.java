@@ -6,13 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StudentPanel extends JPanel {
-    GridBagConstraints c = new GridBagConstraints();
-
+    //Variables
     int studentYear = 0;
     String studentName = "";
     String studentAddress = "";
 
-    public StudentPanel(){
+    //Constraints for GridBag
+    GridBagConstraints c = new GridBagConstraints();
+
+    StudentPanel(){
         setLayout(new GridBagLayout());
         setVisible(false);
 
@@ -44,7 +46,7 @@ public class StudentPanel extends JPanel {
                 try {
                     StudentPanel.this.studentYear = Integer.parseInt(enterStudentYear.getText());
                 } catch (Exception f){
-
+                    f.printStackTrace();
                 }
                 if (enterStudentYear.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null,"Please enter a number.");
@@ -78,7 +80,7 @@ public class StudentPanel extends JPanel {
                 try {
                     StudentPanel.this.studentName = confirmStudentName.getText();
                 } catch (Exception f){
-
+                    f.printStackTrace();
                 }
                 if (enterStudentYear.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null,"Please enter valid information.");
@@ -110,7 +112,7 @@ public class StudentPanel extends JPanel {
                 try {
                     StudentPanel.this.studentAddress = enterAddress.getText();
                 } catch (Exception f){
-
+                    f.printStackTrace();
                 }
                 if (enterAddress.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null,"Please enter valid information.");
