@@ -74,7 +74,7 @@ public class Frame extends JFrame {
                 panelStart.setVisible(false);
                 panelStaff.setVisible(false);
                 //TODO: Figure out how to put this in StudentPanel.java
-                setSize(300,250);
+                setSize(300,270);
                 studentPanel.setVisible(true);
             }
         });

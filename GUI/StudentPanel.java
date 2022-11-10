@@ -118,5 +118,16 @@ public class StudentPanel extends JPanel {
             }
         });
         //******
+
+        JButton generateReport = new JButton("Generate Report");
+        c.insets= new Insets(10,5,5,0);
+        c.gridx=0;
+        c.gridy=7;
+        add(generateReport,c);
+
+        JButton backButton = new JButton("Back");
+        c.gridx=1;
+        c.gridy=7;
+        add(backButton,c);
     }
 }
