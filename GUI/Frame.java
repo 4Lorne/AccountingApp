@@ -16,14 +16,13 @@ public class Frame extends JFrame {
 
 
     public Frame(){
+        setTitle("Accounting Application");
+        //Size of the frame
+        setSize(300,150);
         setPanelStart();
     }
 
     void setPanelStart(){
-        setTitle("Accounting Application");
-        //Size of the frame
-        setSize(300,150);
-
         //NOTE
         //Buttons need to be added to the panel before being
         //Added to the frame.
@@ -106,22 +105,25 @@ public class Frame extends JFrame {
         c.gridy=1;
         panelStudent.add(enterStudentYear,c);
 
-        JButton confirmStudentInput = new JButton("Ok");
+        JButton confirmStudentInput = new JButton("Confirm");
         c.gridwidth=1;
         c.gridx=1;
         c.gridy=1;
         panelStudent.add(confirmStudentInput,c);
 
-        //TODO: Add input validation for strings
+        //Input validation + setting student year
         confirmStudentInput.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int currYear = Integer.parseInt(confirmStudentInput.getText());
+                int currYear = 0;
+                try {
+                    currYear = Integer.parseInt(enterStudentYear.getText());
+                } catch (Exception f){
+
+                }
                 if (currYear > 4 || currYear < 1){
                     JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
                 }
-
-
             }
         });
 
