@@ -1,4 +1,4 @@
-import GUI.Frame;
+import GUI.StartPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,12 +7,12 @@ public class Main {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                Frame frame = new Frame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-                frame.setResizable(false);
-                frame.setLocationRelativeTo(null);
-                frame.pack();
+                StartPanel startPanel = new StartPanel();
+                startPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                startPanel.setVisible(true);
+                startPanel.setResizable(false);
+                startPanel.setLocationRelativeTo(null);
+                startPanel.pack();
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -4,21 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class Frame extends JFrame {
-    JPanel panelStart = new JPanel(new GridBagLayout());
+public class StartPanel extends JFrame {
     GridBagConstraints c = new GridBagConstraints();
 
+    JPanel panelStart = new JPanel(new GridBagLayout());
     StudentPanel studentPanel = new StudentPanel();
     StaffPanel staffPanel = new StaffPanel();
 
-    public Frame(){
+    public StartPanel(){
         setTitle("Accounting Application");
         //Size of the frame
         setSize(300,150);
-        setPanelStart();
-    }
-
-    void setPanelStart(){
         setLayout(new GridBagLayout());
         //NOTE
         //Buttons need to be added to the panel before being
@@ -75,14 +71,5 @@ public class Frame extends JFrame {
             setSize(300,270);
             staffPanel.setVisible(true);
         });
-
-
-
-
     }
-
-
-
-
-
 }
