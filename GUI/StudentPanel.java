@@ -2,8 +2,6 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StudentPanel extends JPanel {
     //Variables
@@ -40,21 +38,17 @@ public class StudentPanel extends JPanel {
         c.gridy=1;
         add(confirmStudentInput,c);
         //TODO set values to Student class
-        confirmStudentInput.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    StudentPanel.this.studentYear = Integer.parseInt(enterStudentYear.getText());
-                } catch (Exception f){
-                    f.printStackTrace();
-                }
-                if (enterStudentYear.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Please enter a number.");
-                } else if (StudentPanel.this.studentYear > 4 || StudentPanel.this.studentYear < 1){
-                    JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
-                }
+        confirmStudentInput.addActionListener(e -> {
+            try {
+                StudentPanel.this.studentYear = Integer.parseInt(enterStudentYear.getText());
+            } catch (Exception f){
+                f.printStackTrace();
             }
-
+            if (enterStudentYear.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Please enter a number.");
+            } else if (StudentPanel.this.studentYear > 4 || StudentPanel.this.studentYear < 1){
+                JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
+            }
         });
 
         //******
@@ -74,17 +68,14 @@ public class StudentPanel extends JPanel {
         add(confirmStudentName,c);
 
         //TODO set values to Student class
-        confirmStudentName.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    StudentPanel.this.studentName = confirmStudentName.getText();
-                } catch (Exception f){
-                    f.printStackTrace();
-                }
-                if (enterStudentYear.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Please enter valid information.");
-                }
+        confirmStudentName.addActionListener(e -> {
+            try {
+                StudentPanel.this.studentName = confirmStudentName.getText();
+            } catch (Exception f){
+                f.printStackTrace();
+            }
+            if (enterStudentYear.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Please enter valid information.");
             }
         });
         //******
@@ -106,17 +97,14 @@ public class StudentPanel extends JPanel {
         add(confirmStudentAddress,c);
 
         //TODO set values to Student class
-        confirmStudentAddress.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    StudentPanel.this.studentAddress = enterAddress.getText();
-                } catch (Exception f){
-                    f.printStackTrace();
-                }
-                if (enterAddress.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Please enter valid information.");
-                }
+        confirmStudentAddress.addActionListener(e -> {
+            try {
+                StudentPanel.this.studentAddress = enterAddress.getText();
+            } catch (Exception f){
+                f.printStackTrace();
+            }
+            if (enterAddress.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Please enter valid information.");
             }
         });
         //******

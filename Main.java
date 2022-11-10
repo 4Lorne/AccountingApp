@@ -5,21 +5,17 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    GUI.Frame frame = new Frame();
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setVisible(true);
-                    frame.setResizable(false);
-                    frame.setLocationRelativeTo(null);
-                    frame.pack();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                Frame frame = new Frame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+                frame.setResizable(false);
+                frame.setLocationRelativeTo(null);
+                frame.pack();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
         });
     }
 }

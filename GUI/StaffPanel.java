@@ -1,11 +1,7 @@
 package GUI;
 
-import Classes.Staff;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StaffPanel extends JPanel {
     //Variables
@@ -41,17 +37,14 @@ public class StaffPanel extends JPanel {
         c.gridy=1;
         add(confirmStaffName,c);
 
-        confirmStaffName.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    StaffPanel.this.staffName = enterStaffName.getText();
-                } catch (Exception f){
-                    f.printStackTrace();
-                }
-                if (enterStaffName.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Please enter valid information.");
-                }
+        confirmStaffName.addActionListener(e -> {
+            try {
+                StaffPanel.this.staffName = enterStaffName.getText();
+            } catch (Exception f){
+                f.printStackTrace();
+            }
+            if (enterStaffName.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Please enter valid information.");
             }
         });
 
@@ -72,17 +65,14 @@ public class StaffPanel extends JPanel {
         c.gridy=3;
         add(confirmStaffAddress,c);
 
-        confirmStaffAddress.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    StaffPanel.this.staffAddress = enterStaffAddress.getText();
-                } catch (Exception f){
-                    f.printStackTrace();
-                }
-                if (enterStaffAddress.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Please enter valid information.");
-                }
+        confirmStaffAddress.addActionListener(e -> {
+            try {
+                StaffPanel.this.staffAddress = enterStaffAddress.getText();
+            } catch (Exception f){
+                f.printStackTrace();
+            }
+            if (enterStaffAddress.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Please enter valid information.");
             }
         });
 
@@ -103,19 +93,16 @@ public class StaffPanel extends JPanel {
         c.gridy=5;
         add(confirmStaffYearsOfService,c);
 
-        confirmStaffYearsOfService.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    StaffPanel.this.yearsOfService = Integer.parseInt(enterStaffYearsOfService.getText());
-                } catch (Exception f){
-                    f.printStackTrace();
-                }
-                if (enterStaffYearsOfService.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Please enter a number.");
-                } else if (StaffPanel.this.yearsOfService < 1 || StaffPanel.this.yearsOfService > 30){
-                    JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
-                }
+        confirmStaffYearsOfService.addActionListener(e -> {
+            try {
+                StaffPanel.this.yearsOfService = Integer.parseInt(enterStaffYearsOfService.getText());
+            } catch (Exception f){
+                f.printStackTrace();
+            }
+            if (enterStaffYearsOfService.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Please enter a number.");
+            } else if (StaffPanel.this.yearsOfService < 1 || StaffPanel.this.yearsOfService > 30){
+                JOptionPane.showMessageDialog(null,"Please enter an integer between 1 and 4.");
             }
         });
 

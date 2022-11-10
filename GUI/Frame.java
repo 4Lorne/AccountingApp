@@ -2,8 +2,6 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class Frame extends JFrame {
@@ -65,23 +63,17 @@ public class Frame extends JFrame {
         add(panelStart);
 
         //Hides the first panel, shows the one chosen.
-        student.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                panelStart.setVisible(false);
-                //TODO: Figure out how to put this in StudentPanel.java
-                setSize(300,270);
-                studentPanel.setVisible(true);
-            }
+        student.addActionListener(e -> {
+            panelStart.setVisible(false);
+            //TODO: Figure out how to put this in StudentPanel.java
+            setSize(300,270);
+            studentPanel.setVisible(true);
         });
 
-        staff.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                panelStart.setVisible(false);
-                setSize(300,270);
-                staffPanel.setVisible(true);
-            }
+        staff.addActionListener(e -> {
+            panelStart.setVisible(false);
+            setSize(300,270);
+            staffPanel.setVisible(true);
         });
 
 
