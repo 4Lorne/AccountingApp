@@ -116,6 +116,7 @@ public class StaffPanel extends JPanel {
         c.gridy=7;
         add(generateReport,c);
 
+        //Creates staff from information gathered.
         generateReport.addActionListener(e ->
                 staffArray.add(new Staff(staffName,staffAddress,yearsOfService)));
 

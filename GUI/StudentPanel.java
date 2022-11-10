@@ -4,6 +4,8 @@ import Classes.Student;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class StudentPanel extends JPanel {
@@ -18,7 +20,7 @@ public class StudentPanel extends JPanel {
 
     StudentPanel(){
         setLayout(new GridBagLayout());
-        setVisible(false);
+        setVisible(true);
 
         //Buttons will grow with the screen
         c.weightx=0.5;
@@ -41,7 +43,6 @@ public class StudentPanel extends JPanel {
         c.gridx=1;
         c.gridy=1;
         add(confirmStudentInput,c);
-        //TODO set values to Student class
         confirmStudentInput.addActionListener(e -> {
             try {
                 studentYear = Integer.parseInt(enterStudentYear.getText());
@@ -71,7 +72,6 @@ public class StudentPanel extends JPanel {
         c.gridy=3;
         add(confirmStudentName,c);
 
-        //TODO set values to Student class
         confirmStudentName.addActionListener(e -> {
             try {
                 studentName = enterName.getText();
@@ -100,7 +100,6 @@ public class StudentPanel extends JPanel {
         c.gridy=5;
         add(confirmStudentAddress,c);
 
-        //TODO set values to Student class
         confirmStudentAddress.addActionListener(e -> {
             try {
                 studentAddress = enterAddress.getText();
@@ -120,14 +119,31 @@ public class StudentPanel extends JPanel {
         c.gridy=7;
         add(generateStudent,c);
 
-        generateStudent.addActionListener(e ->
-                studentArray.add(new Student(studentName,studentAddress,studentYear)));
+        //TODO: Add validation that all three variables have value before creating student.
+
+        //Creates student from information gathered.
+        generateStudent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                studentArray.add(new Student(studentName,studentAddress,studentYear));
+                for (int i =0; i < studentArray.size();i++){
+                    System.out.println(studentArray);
+                }
+            }
+        });
 
         JButton backButton = new JButton("Back");
         c.gridx=1;
         c.gridy=7;
         add(backButton,c);
 
+
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getTopLevelAncestor().setVisible(false);
+            }
+        });
     }
 
 

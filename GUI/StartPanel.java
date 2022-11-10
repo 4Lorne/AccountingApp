@@ -14,7 +14,6 @@ public class StartPanel extends JFrame {
     public StartPanel(){
         setTitle("Accounting Application");
         //Size of the frame
-        setSize(300,150);
         setLayout(new GridBagLayout());
         //NOTE
         //Buttons need to be added to the panel before being
@@ -54,16 +53,13 @@ public class StartPanel extends JFrame {
         panelStart.add(exit,c);
 
         //Adding the panel to the frame
-        add(studentPanel);
         add(staffPanel);
         add(panelStart);
 
         //Hides the first panel, shows the one chosen.
         student.addActionListener(e -> {
-            panelStart.setVisible(false);
             //TODO: Figure out how to put this in StudentPanel.java
-            setSize(300,270);
-            studentPanel.setVisible(true);
+            new StudentFrame();
         });
 
         staff.addActionListener(e -> {

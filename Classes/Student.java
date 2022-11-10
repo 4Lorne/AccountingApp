@@ -8,4 +8,10 @@ public class Student extends Person{
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "year=" + year +
+                '}' + super.toString();
+    }
 }
