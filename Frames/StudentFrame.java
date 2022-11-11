@@ -1,18 +1,16 @@
 package Frames;
 
-import Classes.Student;
+import Classes.Model;
 import Panels.StudentPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class StudentFrame extends JFrame {
+    Model model = new Model();
+    StudentPanel studentPanel = new StudentPanel(model);
 
-    ArrayList<Student> studentArray = new ArrayList<>();
-    StudentPanel studentPanel = new StudentPanel(studentArray);
-
-    public StudentFrame(){
+    public StudentFrame(Model model){
         setTitle("Accounting Application - Student Information");
         setSize(300,270);
         setLayout(new GridBagLayout());

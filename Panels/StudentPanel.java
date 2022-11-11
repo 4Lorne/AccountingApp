@@ -1,12 +1,12 @@
 package Panels;
 
+import Classes.Model;
 import Classes.Student;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class StudentPanel extends JPanel {
     //Variables
@@ -17,7 +17,7 @@ public class StudentPanel extends JPanel {
     //Constraints for GridBag
     GridBagConstraints c = new GridBagConstraints();
 
-    public StudentPanel(ArrayList<Student> studentArray){
+    public StudentPanel(Model model){
         setLayout(new GridBagLayout());
         setVisible(true);
 
@@ -120,10 +120,8 @@ public class StudentPanel extends JPanel {
         generateStudent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                studentArray.add(new Student(studentName,studentAddress,studentYear));
-                for (int i =0; i < studentArray.size();i++){
-                    System.out.println(studentArray);
-                }
+                model.addStudent(studentName,studentAddress,studentYear);
+                System.out.println(model);
             }
         });
 
@@ -139,4 +137,5 @@ public class StudentPanel extends JPanel {
             }
         });
     }
+
 }

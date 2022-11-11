@@ -1,6 +1,6 @@
 package Panels;
 
-import Classes.Student;
+import Classes.Model;
 import Frames.StaffFrame;
 import Frames.StudentFrame;
 
@@ -8,12 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 
 public class StartPanel extends JPanel {
     GridBagConstraints c = new GridBagConstraints();
-    ArrayList <Student> studentArray = new ArrayList<>();
+
+    Model model = new Model();
 
     public StartPanel(){
         setLayout(new GridBagLayout());
@@ -51,20 +51,32 @@ public class StartPanel extends JPanel {
         c.gridy=5;
         add(exit,c);
 
+        createButton();
+
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(studentArray);
+                System.out.println(model);
             }
         });
 
         //Opens a new window for the selected button.
         student.addActionListener(e -> {
-            new StudentFrame();
+            new StudentFrame(model);
         });
 
         staff.addActionListener(e -> {
             new StaffFrame();
         });
+    }
+
+
+    //TODO: Create a method to return Model value
+    void createButton(){
+        JButton exit = new JButton("Test Report");
+        c.fill=GridBagConstraints.HORIZONTAL;
+        c.gridx=2;
+        c.gridy=8;
+        add(exit,c);
     }
 }

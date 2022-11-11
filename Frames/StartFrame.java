@@ -1,5 +1,6 @@
 package Frames;
 
+import Classes.Model;
 import Panels.StartPanel;
 
 import javax.swing.*;
