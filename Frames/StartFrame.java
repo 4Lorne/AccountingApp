@@ -9,9 +9,9 @@ import java.awt.*;
 public class StartFrame extends JFrame {
     StartPanel startPanel = new StartPanel();
 
-    public StartFrame(){
+    public StartFrame() {
         setTitle("Accounting Application - Home");
-        setSize(300,270);
+        setSize(300, 270);
         setLayout(new GridBagLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);

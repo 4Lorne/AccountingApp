@@ -1,8 +1,8 @@
 package Classes;
 
 public class Person {
-    private String name;
-    private String address;
+    private final String name;
+    private final String address;
 
     Person(String name, String address){
         this.name = name;

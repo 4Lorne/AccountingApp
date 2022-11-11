@@ -12,9 +12,9 @@ public class StaffFrame extends JFrame {
     ArrayList<Staff> staffArray = new ArrayList<>();
     StaffPanel staffPanel = new StaffPanel(staffArray);
 
-    public StaffFrame(){
+    public StaffFrame() {
         setTitle("Accounting Application - Staff Information");
-        setSize(300,270);
+        setSize(300, 270);
         setLayout(new GridBagLayout());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
