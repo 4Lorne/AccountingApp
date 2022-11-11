@@ -1,6 +1,7 @@
-package GUI;
+package Frames;
 
 import Classes.Student;
+import Panels.StudentPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 public class StudentFrame extends JFrame {
 
     ArrayList<Student> studentArray = new ArrayList<>();
-    StudentPanel studentPanel = new StudentPanel();
+    StudentPanel studentPanel = new StudentPanel(studentArray);
 
-    StudentFrame(){
+    public StudentFrame(){
         setTitle("Accounting Application - Student Information");
         setSize(300,270);
         setLayout(new GridBagLayout());
@@ -20,6 +21,5 @@ public class StudentFrame extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         add(studentPanel);
-
     }
 }

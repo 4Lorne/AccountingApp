@@ -1,26 +1,25 @@
-package GUI;
+package Panels;
+
+import Classes.Student;
+import Frames.StaffFrame;
+import Frames.StudentFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
-public class StartPanel extends JFrame {
+public class StartPanel extends JPanel {
     GridBagConstraints c = new GridBagConstraints();
-
-    JPanel panelStart = new JPanel(new GridBagLayout());
-    StudentPanel studentPanel = new StudentPanel();
-    StaffPanel staffPanel = new StaffPanel();
+    ArrayList <Student> studentArray = new ArrayList<>();
 
     public StartPanel(){
-        setTitle("Accounting Application");
-        //Size of the frame
         setLayout(new GridBagLayout());
-        //NOTE
-        //Buttons need to be added to the panel before being
-        //Added to the frame.
+        setVisible(true);
 
         //Buttons will grow with the screen
-        c.weightx=0.5;
         c.insets= new Insets(5,5,5,5);
 
         //Adding label to the panel
@@ -30,7 +29,7 @@ public class StartPanel extends JFrame {
         c.gridwidth=0;
         c.gridx=0;
         c.gridy=0;
-        panelStart.add(select,c);
+        add(select,c);
 
         //Adding the buttons to the start panel
         JButton student = new JButton("Student");
@@ -38,34 +37,34 @@ public class StartPanel extends JFrame {
         c.gridwidth=1;
         c.gridx=0;
         c.gridy=5;
-        panelStart.add(student,c);
+        add(student,c);
 
         JButton staff = new JButton("Staff");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx=1;
         c.gridy=5;
-        panelStart.add(staff,c);
+        add(staff,c);
 
         JButton exit = new JButton("Generate Report");
         c.fill=GridBagConstraints.HORIZONTAL;
         c.gridx=2;
         c.gridy=5;
-        panelStart.add(exit,c);
+        add(exit,c);
 
-        //Adding the panel to the frame
-        add(staffPanel);
-        add(panelStart);
+        exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(studentArray);
+            }
+        });
 
-        //Hides the first panel, shows the one chosen.
+        //Opens a new window for the selected button.
         student.addActionListener(e -> {
-            //TODO: Figure out how to put this in StudentPanel.java
             new StudentFrame();
         });
 
         staff.addActionListener(e -> {
-            panelStart.setVisible(false);
-            setSize(300,270);
-            staffPanel.setVisible(true);
+            new StaffFrame();
         });
     }
 }

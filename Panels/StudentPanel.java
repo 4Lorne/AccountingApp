@@ -1,4 +1,4 @@
-package GUI;
+package Panels;
 
 import Classes.Student;
 
@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class StudentPanel extends JPanel {
-    ArrayList<Student> studentArray = new ArrayList<>();
     //Variables
     int studentYear = 0;
     String studentName = "";
@@ -18,12 +17,10 @@ public class StudentPanel extends JPanel {
     //Constraints for GridBag
     GridBagConstraints c = new GridBagConstraints();
 
-    StudentPanel(){
+    public StudentPanel(ArrayList<Student> studentArray){
         setLayout(new GridBagLayout());
         setVisible(true);
 
-        //Buttons will grow with the screen
-        c.weightx=0.5;
         c.insets= new Insets(5,5,5,5);
 
         //*****
@@ -119,8 +116,6 @@ public class StudentPanel extends JPanel {
         c.gridy=7;
         add(generateStudent,c);
 
-        //TODO: Add validation that all three variables have value before creating student.
-
         //Creates student from information gathered.
         generateStudent.addActionListener(new ActionListener() {
             @Override
@@ -137,7 +132,6 @@ public class StudentPanel extends JPanel {
         c.gridy=7;
         add(backButton,c);
 
-
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -145,6 +139,4 @@ public class StudentPanel extends JPanel {
             }
         });
     }
-
-
 }

@@ -1,13 +1,14 @@
-package GUI;
+package Panels;
 
 import Classes.Staff;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class StaffPanel extends JPanel {
-    ArrayList<Staff> staffArray = new ArrayList<>();
     //Variables
     String staffName;
     String staffAddress;
@@ -16,12 +17,9 @@ public class StaffPanel extends JPanel {
     //Constraints for GridBag
     GridBagConstraints c = new GridBagConstraints();
 
-    StaffPanel(){
+    public StaffPanel(ArrayList<Staff> staffArray){
         setLayout(new GridBagLayout());
-        setVisible(false);
 
-        //Buttons will grow with the screen
-        c.weightx=0.5;
         c.insets= new Insets(5,5,5,5);
 
         JLabel labelStaffName = new JLabel("Enter staff name");
@@ -116,14 +114,25 @@ public class StaffPanel extends JPanel {
         c.gridy=7;
         add(generateReport,c);
 
-        //Creates staff from information gathered.
-        generateReport.addActionListener(e ->
-                staffArray.add(new Staff(staffName,staffAddress,yearsOfService)));
+        generateReport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                staffArray.add(new Staff(staffName,staffAddress,yearsOfService));
+                System.out.println(staffArray);
+            }
+        });
 
         JButton backButton = new JButton("Back");
         c.gridx=1;
         c.gridy=7;
         add(backButton,c);
+
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getTopLevelAncestor().setVisible(false);
+            }
+        });
 
     }
 }

@@ -6,4 +6,11 @@ public class Staff extends Person {
         super(name,address);
         this.yos = yos;
     }
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "yos=" + yos +
+                '}' + super.toString();
+    }
 }
