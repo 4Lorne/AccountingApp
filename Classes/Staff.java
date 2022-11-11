@@ -1,6 +1,7 @@
 package Classes;
 
 public class Staff extends Person {
+
     private final int yos;
     public Staff(String name, String address, int yos){
         super(name,address);
@@ -12,5 +13,9 @@ public class Staff extends Person {
         return "Staff{" +
                 "yos=" + yos +
                 '}' + super.toString();
+    }
+
+    public int getYos() {
+        return yos;
     }
 }

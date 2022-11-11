@@ -14,4 +14,8 @@ public class Student extends Person{
                 "year=" + year +
                 '}' + super.toString();
     }
+
+    public int getYear() {
+        return year;
+    }
 }

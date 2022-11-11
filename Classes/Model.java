@@ -24,10 +24,10 @@ public class Model {
         staffArrayList.add(new Staff(this.name, this.address, this.year));
     }
 
-    @Override
-    public String toString() {
-        return "Model{" +
-                "studentArrayList=" + studentArrayList +
-                '}';
+    public String toStringStudent() {
+        return "Students [Total:"+studentArrayList.size()+"]";
+
     }
+
+
 }

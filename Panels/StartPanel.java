@@ -1,6 +1,7 @@
 package Panels;
 
 import Classes.Model;
+import Frames.ReportFrame;
 import Frames.StaffFrame;
 import Frames.StudentFrame;
 
@@ -51,12 +52,12 @@ public class StartPanel extends JPanel {
         c.gridy = 5;
         add(exit, c);
 
-        createButton();
 
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(model);
+                new ReportFrame();
+                System.out.println(model.toString());
             }
         });
 
@@ -68,15 +69,5 @@ public class StartPanel extends JPanel {
         staff.addActionListener(e -> {
             new StaffFrame();
         });
-    }
-
-
-    //TODO: Create a method to return Model value
-    void createButton() {
-        JButton exit = new JButton("Test Report");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 2;
-        c.gridy = 8;
-        add(exit, c);
     }
 }

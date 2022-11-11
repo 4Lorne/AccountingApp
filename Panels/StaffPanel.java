@@ -1,13 +1,11 @@
 package Panels;
 
 import Classes.Model;
-import Classes.Staff;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class StaffPanel extends JPanel {
     //Variables
@@ -15,12 +13,10 @@ public class StaffPanel extends JPanel {
     String staffAddress = "";
     int yearsOfService = 0;
 
-    Model model = new Model();
-
     //Constraints for GridBag
     GridBagConstraints c = new GridBagConstraints();
 
-    public StaffPanel(ArrayList<Staff> staffArray) {
+    public StaffPanel(Model model) {
         setLayout(new GridBagLayout());
 
         c.insets = new Insets(5, 5, 5, 5);
@@ -138,8 +134,6 @@ public class StaffPanel extends JPanel {
                     JOptionPane.showMessageDialog(null, "Please fill all text boxes.");
                 }
                 System.out.println(model);
-                staffArray.add(new Staff(staffName, staffAddress, yearsOfService));
-                System.out.println(staffArray);
             }
         });
 

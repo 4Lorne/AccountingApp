@@ -1,10 +1,7 @@
-import Classes.Model;
 import Frames.StartFrame;
 
 import javax.swing.*;
 import java.awt.*;
-
-//TODO: Create new JFrame when clicking on Student / Staff / Generate Report
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +12,7 @@ public class Main {
                 startFrame.setVisible(true);
                 startFrame.setResizable(false);
                 startFrame.setLocationRelativeTo(null);
+                startFrame.pack();
             } catch (Exception e) {
                 e.printStackTrace();
             }
