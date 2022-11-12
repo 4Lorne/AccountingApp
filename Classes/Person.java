@@ -11,10 +11,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return "Name: " + name + ", Address: " + address;
     }
 
     public String getName() {

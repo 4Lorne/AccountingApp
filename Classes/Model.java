@@ -24,10 +24,28 @@ public class Model {
         staffArrayList.add(new Staff(this.name, this.address, this.year));
     }
 
-    public String toStringStudent() {
-        return "Students [Total:"+studentArrayList.size()+"]";
-
+    public ArrayList<Student> toStringStudent() {
+        return studentArrayList;
     }
 
+    double calculateFee(Student student){
+        double fee = 3000;
+        if (student.getYear() == 1) {
+            return fee;
+        }
+        if (student.getYear() == 2){
+            fee = 3100;
+            return fee;
+        }
+        if (student.getYear() == 3){
+            fee = 3200;
+            return fee;
+        }
+        if (student.getYear() == 4){
+            fee = 3300;
+            return fee;
+        }
+        return fee;
+    }
 
 }

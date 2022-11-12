@@ -10,12 +10,11 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return "Student{" +
-                "year=" + year +
-                '}' + super.toString();
+        return super.toString() + ", Year: "+year;
     }
 
     public int getYear() {
         return year;
     }
+
 }
